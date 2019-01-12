@@ -1,0 +1,20 @@
+{
+    "name": "example",
+    "version": "1.0.0",
+    "description": "@giladno/dynamodb example",
+    "main": "index.js",
+    "engines": {
+        "node": ">=8.6.0"
+    },
+    "scripts": {
+        "start": "node index.js",
+        "local": "docker run -it --rm -p 8000:8000 amazon/dynamodb-local -Djava.library.path=./DynamoDBLocal_lib -jar DynamoDBLocal.jar -inMemory || true"
+    },
+    "keywords": [],
+    "author": "Gilad Novik <gilad@novik.ca>",
+    "license": "MIT",
+    "dependencies": {
+        "@giladno/dynamodb": "../",
+        "aws-sdk": "^2.387.0"
+    }
+}
