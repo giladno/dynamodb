@@ -55,15 +55,23 @@ db.Post.put(...);
 
 Defines a schema for that table
 
--   `schema` - `attributes` An object representing attributes/keys for table creation - `type` DynamoDB type (`S`, `N`, `B`) - `range` Set to `true` for `RANGE` key type (default to `HASH` type) - `throughput` Provisioned throughput. Can use a single number for both read/write capacity or an object with `read`/`write` keys. When `throughput` is not defined, this will set billing mode to `PAY_PER_REQUEST`. > `PAY_PER_REQUEST` is not supported when testing locally using **dynamodb-local** - `kms` Optional KMS master key to use.
-    > This method is only required if you want to allow the database to create tables implicitly when required. It is not required if you create them yourself (using the CLI/CloudFormation or by calling `table.init`).
+-   `schema`
+    -   `attributes` An object representing attributes/keys for table creation
+        -   `type` DynamoDB type (`S`, `N`, `B`)
+        -   `range` Set to `true` for `RANGE` key type (default to `HASH` type)
+    -   `throughput` Provisioned throughput. Can use a single number for both read/write capacity or an object with `read`/`write` keys. When `throughput` is not defined, this will set billing mode to `PAY_PER_REQUEST`.
+        > `PAY_PER_REQUEST` is not supported when testing locally using **dynamodb-local**
+    -   `kms` Optional KMS master key to use.
+
+> This method is only required if you want to allow the database to create tables implicitly when required. It is not required if you create them yourself (using the CLI/CloudFormation or by calling `table.init`).
 
 #### table.init(schema)
 
 Creates a table in DynamoDB
 
 -   `schema` Same as [table.define](#table.define)
-    > This method will be called automatically when trying to access a table which does not exist.
+
+> This method will be called automatically when trying to access a table which does not exist.
 
 #### table.scan()
 
