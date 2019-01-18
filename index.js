@@ -75,8 +75,8 @@ module.exports = ({AWS = require('aws-sdk'), waitForActive = 180000} = {}) => {
                         return false;
                     };
 
-                    table.scan = initWrapper(async function() {
-                        const {Items} = await client.scan({TableName}).promise();
+                    table.scan = initWrapper(async function(opt = {}) {
+                        const {Items} = await client.scan({...opt, TableName}).promise();
                         return Items;
                     });
 
