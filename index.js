@@ -119,7 +119,7 @@ module.exports = ({AWS = require('aws-sdk'), waitForActive = 180000} = {}) => {
 
                     table.update = initWrapper(async function(
                         Key,
-                        {$unset = {}, $push = {}, $pop, ...data},
+                        {$unset = {}, $push = {}, $pop = {}, ...data},
                         {returns: ReturnValues} = {}
                     ) {
                         const {Attributes} = await client
